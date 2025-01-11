@@ -17,7 +17,7 @@ namespace PBSpyGUI
         static void Main()
         {
 #if DEBUG
-            TestClass.Test();
+//            TestClass.Test();
 #endif
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

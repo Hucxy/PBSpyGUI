@@ -31,19 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.scintilla1 = new ScintillaNET.Scintilla();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -57,7 +56,6 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +76,14 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -150,54 +156,33 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.scintilla1);
+            this.splitContainer2.Panel1.Controls.Add(this.tabControl1);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer2.Size = new System.Drawing.Size(591, 488);
             this.splitContainer2.SplitterDistance = 360;
             this.splitContainer2.TabIndex = 0;
             // 
-            // scintilla1
-            // 
-            this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.HScrollBar = false;
-            this.scintilla1.Location = new System.Drawing.Point(0, 0);
-            this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(591, 360);
-            this.scintilla1.TabIndex = 0;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(591, 124);
+            this.tabControl1.Size = new System.Drawing.Size(591, 360);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.DoubleClick += new System.EventHandler(this.tabControl1_DoubleClick);
             // 
-            // tabPage1
+            // tabControl2
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(583, 98);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(583, 98);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(591, 124);
+            this.tabControl2.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -218,13 +203,10 @@
             this.toolStripButton1.Size = new System.Drawing.Size(34, 22);
             this.toolStripButton1.Text = "Run";
             // 
-            // openToolStripMenuItem
+            // openFileDialog1
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openFileDialog1.Filter = "PB File|*.pbw;*.pbt";
+            this.openFileDialog1.Title = "Select PowerBuilder File";
             // 
             // MainForm
             // 
@@ -255,7 +237,6 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -275,11 +256,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private ScintillaNET.Scintilla scintilla1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

@@ -39,6 +39,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+    <NoWarn>IDE1006</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\</OutputPath>
@@ -79,8 +80,11 @@
     <Compile Include="PBSpy\PBSpyApiRequestWithData.cs" />
     <Compile Include="PBSpy\PBSpyApiResponse.cs" />
     <Compile Include="PBSpy\PBSpyApiResponseWithData.cs" />
-    <Compile Include="PBSpy\WorkspaceOpenRequestData.cs" />
-    <Compile Include="PBSpy\WorkspaceOpenResponseData.cs" />
+    <Compile Include="PBSpy\TargetGetRequestData.cs" />
+    <Compile Include="PBSpy\TargetGetResponseData.cs" />
+    <Compile Include="PBSpy\TargetProject.cs" />
+    <Compile Include="PBSpy\WorkspaceGetRequestData.cs" />
+    <Compile Include="PBSpy\WorkspaceGetResponseData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\TestClass.cs" />

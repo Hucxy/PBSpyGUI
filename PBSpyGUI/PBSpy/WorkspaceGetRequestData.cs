@@ -7,7 +7,6 @@ namespace PBSpyGUI.PBSpy
 {
     internal class WorkspaceOpenRequestData
     {
-        public int PBVersion { get; set; }
         public string WorkspacePath { get; set; }
     }
 }
